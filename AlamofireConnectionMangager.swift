@@ -1,8 +1,8 @@
 //
 //  AlamofireConnectionMangager.swift
-//  Kitply
+//  GeekGuns
 //
-//  Created by Anup on 23/01/18.
+//  Created by Anup Gupta on 23/01/18.
 //  Copyright © 2018 GeekGuns. All rights reserved.
 //
 
