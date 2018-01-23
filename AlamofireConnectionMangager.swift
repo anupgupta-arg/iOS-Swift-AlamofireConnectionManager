@@ -2,8 +2,8 @@
 //  AlamofireConnectionMangager.swift
 //  Kitply
 //
-//  Created by Uniqolabel Developer on 23/01/18.
-//  Copyright © 2018 Acviss. All rights reserved.
+//  Created by Anup on 23/01/18.
+//  Copyright © 2018 GeekGuns. All rights reserved.
 //
 
 import Foundation
