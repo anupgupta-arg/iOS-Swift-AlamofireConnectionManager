@@ -12,10 +12,22 @@ import Alamofire
 class AlamofireConnectionMangager {
     
     
-    static let sharedInstance = AlamofireConnectionMangager()
+//     static let sharedInstance = AlamofireConnectionMangager()
     
-   private init() {
+//    private init() {
         
+//     }
+    private static var _instance: AlamofireConnectionMangager?;
+    
+    private init() {
+        
+    }
+    
+    public static func getSingleton() -> AlamofireConnectionMangager {
+        if (AlamofireConnectionMangager._instance == nil) {
+            AlamofireConnectionMangager._instance = AlamofireConnectionMangager.init();
+        }
+        return AlamofireConnectionMangager._instance!;
     }
     
     func getDataFromServer( url: String , param : NSDictionary, success: @escaping (NSDictionary) -> () , failure: @escaping (Bool) -> () ) {
