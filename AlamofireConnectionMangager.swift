@@ -30,7 +30,7 @@ class AlamofireConnectionMangager {
         return AlamofireConnectionMangager._instance!;
     }
     
-    func getDataFromServer( url: String , param : NSDictionary, success: @escaping (NSDictionary) -> () , failure: @escaping (Bool) -> () ) {
+    func getDataFromServer( url: String , param : NSDictionary, success: @escaping (NSDictionary) -> () , failure: @escaping (Error?) -> () ) {
         
         
     Alamofire.request(url , method: .post, parameters: param as? [String: Any] , encoding: URLEncoding.default, headers: nil).responseJSON
@@ -43,21 +43,29 @@ class AlamofireConnectionMangager {
                 print("response.value: ", response.value as Any)
                 print("response.error:", response.error as Any)
                 
-                let StatusCode = response.response?.statusCode
-                if response.result.isSuccess && StatusCode == 200{
+                
+                
+                 if (response.error != nil) {
+                    failure(response.error);
+                }
+                else if (response.value != nil) {
+                    success(response.value as! NSDictionary)
+                }
+//                 let StatusCode = response.response?.statusCode
+//                 if response.result.isSuccess && StatusCode == 200{
                     
-                    print("post data")
-                    let dic : NSDictionary = response.value as! NSDictionary
+//                     print("post data")
+//                     let dic : NSDictionary = response.value as! NSDictionary
 
-                    success(dic)
+//                     success(dic)
                     
-                }
-                else{
-                    print(response.error?.localizedDescription as Any)
-                    let messageStr : String = (response.error?.localizedDescription)!
-                    print("error message:::",messageStr)
-                    failure(true)
-                }
+//                 }
+//                 else{
+//                     print(response.error?.localizedDescription as Any)
+//                     let messageStr : String = (response.error?.localizedDescription)!
+//                     print("error message:::",messageStr)
+//                     failure(true)
+//                 }
                 
         }
         
