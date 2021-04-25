@@ -1,5 +1,5 @@
 //
-//  AlamofireConnectionMangager.swift
+//  AlamofireConnectionManager.swift
 //  GeekGuns
 //
 //  Created by Anup Gupta on 23/01/18.
@@ -10,19 +10,19 @@
 import Foundation
 import Alamofire
 
-class AlamofireConnectionMangager {
+class AlamofireConnectionManager {
   
-    private static var _instance: AlamofireConnectionMangager?;
+    private static var _instance: AlamofireConnectionManager?;
     
     private init() {
         
     }
     
-    public static func getSingleton() -> AlamofireConnectionMangager {
-        if (AlamofireConnectionMangager._instance == nil) {
-            AlamofireConnectionMangager._instance = AlamofireConnectionMangager.init();
+    public static func getSingleton() -> AlamofireConnectionManager {
+        if (AlamofireConnectionManager._instance == nil) {
+            AlamofireConnectionManager._instance = AlamofireConnectionManager.init();
         }
-        return AlamofireConnectionMangager._instance!;
+        return AlamofireConnectionManager._instance!;
     }
     
     func getDataFromServer( url: String , param : NSDictionary, success: @escaping (NSDictionary) -> () , failure: @escaping (Error?) -> () ) {
@@ -108,7 +108,7 @@ class AlamofireConnectionMangager {
 // This is Use Description
 /*
 
-AlamofireConnectionMangager.sharedInstance.getDataFromServer( url: urlSting , param : params as NSDictionary, success: {(responseResult) -> Void in
+AlamofireConnectionManager.sharedInstance.getDataFromServer( url: urlSting , param : params as NSDictionary, success: {(responseResult) -> Void in
     
     print("responseResult :::",responseResult)
     print("Success")
